@@ -1,0 +1,6 @@
+C:\Users\Admin\source\repos\XmlManager\XmlData\bin\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlData\bin\Debug\XmlData.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.csprojResolveAssemblyReference.cache
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.pdb

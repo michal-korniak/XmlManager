@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\XmlManager\XmlData\bin\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlData\bin\Debug\XmlData.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlLogic.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlData.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlData\obj\Debug\XmlLogic.csprojResolveAssemblyReference.cache
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\bin\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\bin\Debug\XmlData.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\obj\Debug\XmlLogic.csprojResolveAssemblyReference.cache
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\obj\Debug\XmlLogic.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\obj\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlLogic\obj\Debug\XmlData.pdb

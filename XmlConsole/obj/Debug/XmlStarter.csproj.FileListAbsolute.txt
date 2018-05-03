@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlStarter.exe.config
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlStarter.exe
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlStarter.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlData.dll
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlService.dll
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlData.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\bin\Debug\XmlService.pdb
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\obj\Debug\XmlStarter.csprojResolveAssemblyReference.cache
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\obj\Debug\XmlStarter.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\obj\Debug\XmlStarter.csproj.CopyComplete
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\obj\Debug\XmlStarter.exe
+C:\Users\Admin\source\repos\XmlManager\XmlStarter\obj\Debug\XmlStarter.pdb
