@@ -13,6 +13,8 @@ namespace XmlData.Repositories
         Markup GetById(Guid id);
         IEnumerable<Markup> GetByName(string name);
         IEnumerable<Markup> GetByParentId(Guid parentId);
+        IEnumerable<Markup> GetRootMarkups();
+        void DeleteAll();
 
     }
 
@@ -81,6 +83,18 @@ namespace XmlData.Repositories
             _connection.Close();
             return result;
         }
+        public IEnumerable<Markup> GetRootMarkups()
+        {
+            _connection.Open();
+            IEnumerable<Markup> result;
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = @"SELECT * FROM Markups WHERE ParentId is null";
+                result=ExecuteQueryAndGetResults(command);
+            }
+            _connection.Close();
+            return result;
+        }
 
         public IEnumerable<Markup> GetByParentId(Guid parentId)
         {
@@ -107,5 +121,16 @@ namespace XmlData.Repositories
             return markup;
         }
 
+        
+        public void DeleteAll()
+        {
+            _connection.Open();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = @"DELETE FROM Markups";
+                command.ExecuteNonQuery();
+            }
+            _connection.Close();
+        }
     }
 }

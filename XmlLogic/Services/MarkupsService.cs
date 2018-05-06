@@ -8,12 +8,17 @@ using XmlData.Repositories;
 
 namespace XmlData.Services
 {
-    public class MarkupService
+    public interface IMarkupsService {
+        void SaveToDb(Markup markup);
+        IEnumerable<Markup> LoadFromDb();
+    }
+
+    public class MarkupsService : IMarkupsService
     {
         private readonly IMarkupsRepository _markupsRepository;
         private readonly IAttributesRepository _attributesRepository;
 
-        public MarkupService(IMarkupsRepository markupsRepository, IAttributesRepository attributesRepository)
+        public MarkupsService(IMarkupsRepository markupsRepository, IAttributesRepository attributesRepository)
         {
             _markupsRepository = markupsRepository;
             _attributesRepository = attributesRepository;
@@ -31,11 +36,14 @@ namespace XmlData.Services
             }
         }
 
-        public Markup LoadFromDb(string name)
+        public IEnumerable<Markup> LoadFromDb()
         {
-            var root = _markupsRepository.GetByName("root").FirstOrDefault();
-            LoadChilds(root);
-            return root;
+            var roots = _markupsRepository.GetRootMarkups();
+            foreach (var root in roots)
+            {
+                LoadChilds(root);
+            }
+            return roots;
         }
 
         private void LoadChilds(Markup parent)

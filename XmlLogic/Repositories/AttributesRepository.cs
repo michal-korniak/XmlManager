@@ -11,6 +11,9 @@ namespace XmlData.Repositories
 {
     public interface IAttributesRepository {
         void Add(Models.Attribute attribute);
+        void Update(Models.Attribute attribute);
+        void Delete(Guid id);
+        void DeleteAll();
         IEnumerable<Models.Attribute> GetByMarkupId(Guid markupId);
     }
 
@@ -38,6 +41,33 @@ namespace XmlData.Repositories
             _connection.Close();
         }
 
+        public void Update(Models.Attribute attribute)
+        {
+            _connection.Open();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = @"UPDATE Attributes SET Name=@Name, Value=@Value, MarkupId=@MarkupId WHERE AttributeId=@AttributeId";
+                command.AddParameter("AttributeId",attribute.Id);
+                command.AddParameter("Name",attribute.Name);
+                command.AddParameter("Value",attribute.Value);
+                command.AddParameter("MarkupId",attribute.MarkupId);
+                command.ExecuteNonQuery();
+            }
+            _connection.Close();
+        }
+
+        public void Delete(Guid id)
+        {
+            _connection.Open();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = @"DELETE FROM Attributes WHERE AttributeId=@AttributeId";
+                command.AddParameter("AttributeId",id);
+                command.ExecuteNonQuery();
+            }
+            _connection.Close();
+        }
+
         public IEnumerable<Models.Attribute> GetByMarkupId(Guid markupId)
         {
             _connection.Open();
@@ -60,6 +90,17 @@ namespace XmlData.Repositories
             var markupId = reader.GetGuid(3);
             var attribute=new Models.Attribute(attributeId,name,value,markupId);
             return attribute;
+        }
+
+        public void DeleteAll()
+        {
+            _connection.Open();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = @"DELETE FROM Attributes";
+                command.ExecuteNonQuery();
+            }
+            _connection.Close();
         }
     }
 }

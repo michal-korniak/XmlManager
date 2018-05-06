@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XmlManager"
+        xmlns:models="clr-namespace:XmlData.Models;assembly=XmlData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="431.551" Width="724.456"
+        >
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Import/Export">
+                <MenuItem Header="Importuj XMLa" Click="ImportXmlClickHandler" />
+                <MenuItem Header="Eksportuj do XMLa" Click="ExportXmlClickHandler" />
+            </MenuItem>
+        </Menu>
+        <Grid Margin="10,10,10,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TreeView Name="trvMenu" SelectedItemChanged="trvMenu_SelectedItemChanged">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type models:Markup}" ItemsSource="{Binding ChildMarkups}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <DataGrid Grid.Column="1" Margin="1,0,0,0" Name="AttributesDg" RowEditEnding="RowEditEndingHandler" PreviewKeyDown="PreviewKeyDownHandler" CanUserSortColumns="False"
+            />
+            <Button Name="saveChangesBtn" Content="Zapisz zmiany" Grid.Row="1" RenderTransformOrigin="3.15,1.75" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" IsEnabled="False" Click="SaveChangesHandler"/>
+        </Grid>
+    </DockPanel>
+
+    
+
 </Window>
+

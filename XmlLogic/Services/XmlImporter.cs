@@ -5,7 +5,11 @@ using Attribute = XmlData.Models.Attribute;
 
 namespace XmlService
 {
-    public class XmlLoader
+    public interface IXmlImporter {
+        Markup LoadFromFile(string filePath);
+    }
+
+    public class XmlImporter : IXmlImporter
     {
         public Markup LoadFromFile(string filePath)
         {
@@ -26,15 +30,21 @@ namespace XmlService
                     var attributeObject = new Attribute(Guid.NewGuid(),attributeNode.Name, attributeNode.Value,parentId.Value);
                     parentMarkup.Attributes.Add(attributeObject);
                 }
+                    
             }
             foreach (XmlNode childNode in parentNode.ChildNodes)
             {
-                if(childNode.Name=="#text")
+                if (childNode.Name == "#text")
+                {
+                    var innerTextAttribute = new Attribute(Guid.NewGuid(),"innerText", childNode.Value,parentId.Value);
+                    parentMarkup.Attributes.Add(innerTextAttribute);
                     continue;
+                }
                 var childMarkup = new Markup(Guid.NewGuid(),childNode.Name,parentId);
                 LoadChildesAndAttributes(childNode,childMarkup,childMarkup.Id);
                 parentMarkup.ChildMarkups.Add(childMarkup);
             }
+            
         }
     }
 }

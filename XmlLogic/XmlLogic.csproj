@@ -47,8 +47,9 @@
     <Compile Include="Repositories\AttributesRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\MarkupsRepository.cs" />
-    <Compile Include="Services\XmlLoader.cs" />
-    <Compile Include="Services\MarkupService.cs" />
+    <Compile Include="Services\XmlExporter.cs" />
+    <Compile Include="Services\XmlImporter.cs" />
+    <Compile Include="Services\MarkupsService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

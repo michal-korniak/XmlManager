@@ -21,12 +21,14 @@ namespace XmlStarter
 
             var markupRepository = new MarkupsRepository(connection);
             var attributesRepository = new AttributesRepository(connection);
-            var markupService = new MarkupService(markupRepository, attributesRepository);
+            var markupService = new MarkupsService(markupRepository, attributesRepository);
 
-            //XmlLoader loader = new XmlLoader();
+            //XmlImporter loader = new XmlImporter();
             //Markup root = loader.LoadFromFile("81.xml");
             //markupService.SaveToDb(root);
-            var markup =markupService.LoadFromDb("root");
+            var markup = markupService.LoadFromDb().ElementAt(0);
+            var xmlExporter=new XmlExporter();
+            xmlExporter.ExportToFile(markup,"xxx1.xml");
         }
     }
 }

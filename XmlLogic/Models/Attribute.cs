@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace XmlData.Models
 {
@@ -8,6 +9,10 @@ namespace XmlData.Models
         public string Name { get; set; }
         public string Value { get; set; }
         public Guid MarkupId { get; set; }
+
+        public Attribute()
+        {
+        }
 
         public Attribute(Guid id,string name, string value, Guid markupId)
         {
