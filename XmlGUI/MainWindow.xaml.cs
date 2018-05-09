@@ -36,9 +36,12 @@ namespace XmlManager
             _markupsService = new MarkupsService(_markupsRepository, _attributesRepository);
 
 
-            var rootMarkups = _markupsService.LoadFromDb();
-            if(rootMarkups.Count()>0)
-                SetTreeViewData(rootMarkups.ElementAt(0));
+            var roots = _markupsService.LoadFromDb();
+            if(roots.Any())
+            {
+                _markupRoot = roots.ElementAt(0);
+                SetTreeViewData(_markupRoot);
+            }
 
         }
         private void SetTreeViewData(Markup markup)
@@ -151,11 +154,11 @@ namespace XmlManager
                 return;
             var filePath = openFileDialog.FileName;
             var xmlImporter=new XmlImporter();
-            var rootMarkup=xmlImporter.LoadFromFile(filePath);
-            SetTreeViewData(rootMarkup);
+            _markupRoot=xmlImporter.LoadFromFile(filePath);
+            SetTreeViewData(_markupRoot);
             _attributesRepository.DeleteAll();
             _markupsRepository.DeleteAll();
-            _markupsService.SaveToDb(rootMarkup);
+            _markupsService.SaveToDb(_markupRoot);
             MessageBox.Show("Dane zostały wczytane");
         }
 
